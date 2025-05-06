@@ -4,7 +4,7 @@
 
 ## Генерация файла credentials.json
 
-Чтобы редактировать Google Таблицу через Python-скрипт, нужно использовать Google Sheets API:
+Чтобы редактировать Google Таблицу через Python-скрипт, необходимо использовать Google Sheets API:
 
 1. <b>Включите Google Sheets API</b>
 - Перейдите в [Google Cloud Console](https://console.cloud.google.com/).
@@ -15,7 +15,7 @@
 
 - Найдите Google Sheets API и включите его.
 
-- Также можно включить Google Drive API (если нужно управлять доступом к файлам).
+- Также можно включить Google Drive API (если необходимо управлять доступом к файлам).
 
 2. <b>Создайте учетные данные (Credentials)</b>
 - В Google Cloud Console перейдите в "APIs & Services" → "Credentials".
@@ -40,8 +40,8 @@
 - Выберите уровень доступа (например, Editor).
 
 ## Генерация ключа для VK-API
-Создайте [приложение VK](vk.com/apps?act=manage)
-- "Создать приложение"
-- тип "Standalone"
+Создайте [приложение VK](https://vk.com/apps?act=manage)
+- Нажмите "Создать приложение"
+- Выберите тип приложения "Standalone"
 - Скопируйте сервисный ключ доступа
 
