@@ -143,7 +143,8 @@ async def process_create_links(message: Message, command: Command) -> None:
     """
     if command.args is None:
         await message.answer(
-            "Ошибка: Ссылка не была введена"
+            "Ошибка: Ссылка не была введена. Пример:\n"
+            "/create_links <link>"
         )
         return
     try:
@@ -152,7 +153,7 @@ async def process_create_links(message: Message, command: Command) -> None:
         link = command.args.split()[0]
     except ValueError:
         await message.answer(
-            "Ошибка: неправильный ввод команды. Пример:\n"
+            "Ошибка: Неверный ввод команды. Пример:\n"
             "/create_links <link>"
         )
         return
@@ -161,9 +162,10 @@ async def process_create_links(message: Message, command: Command) -> None:
                    for item in _google_worker.get_short_names()]
     _google_worker.insert_event_table("C", short_links)
     await message.answer(
-        "Обработал команду создания ссылок\n"
+        "Ссылка создана!\n"
         f"Ваша ссылка: {link}"
     )
+
 
 
 @router.message(Command("analytics"))
