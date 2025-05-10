@@ -182,7 +182,7 @@ async def process_analytics(message: Message, command: Command) -> None:
     await message.answer(
         "---Начинаю считать переходы по ссылкам---"
     )
-    stats = [sum(_vk_api_worker.get_link_stats(short_link[0])["stats"])
+    stats = [sum(item["views"] for item in _vk_api_worker.get_link_stats(short_link[0])["stats"])
              for short_link in _google_worker.get_partner_links()]
     _google_worker.insert_event_table("F", stats)
     await message.answer(
