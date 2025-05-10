@@ -1,0 +1,13 @@
+services:
+  bot:
+    build: .
+    container_name: links-generator-bot
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - VK_TOKEN=${VK_TOKEN}
+      - GOOGLE_TABLE_ID=${GOOGLE_TABLE_ID}
+    volumes:
+      - ./credentials.json:/app/credentials.json 
+      - ./py_log.log:/app/py_log.log
+      - ./docs:/app/docs
+    restart: unless-stopped

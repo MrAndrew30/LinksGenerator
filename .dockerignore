@@ -1,0 +1,39 @@
+# Игнорируем системные и IDE-файлы
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Игнорируем кэш Python и временные файлы
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# Игнорируем логи и локальные данные
+logs/
+*.log
+*.sqlite
+*.db
+
+# Игнорируем файлы сборки и установки
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Documentation
+docs/build/
+docs/source/_templates/
+
+# Secrets
+.env
+*.env
