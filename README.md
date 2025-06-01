@@ -47,3 +47,10 @@
 
 - Скопируйте сервисный ключ доступа
 
+
+
+## Запуск приложения
+docker-compose build --no-cache
+docker-compose up 
+
+docker-compose down --rmi all - Удалить предыдущие сборки
