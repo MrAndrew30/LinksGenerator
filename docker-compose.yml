@@ -6,8 +6,10 @@ services:
       - BOT_TOKEN=${BOT_TOKEN}
       - VK_TOKEN=${VK_TOKEN}
       - GOOGLE_TABLE_ID=${GOOGLE_TABLE_ID}
+      - TG_ADMIN_ID=${TG_ADMIN_ID}
     volumes:
-      - ./credentials.json:/app/credentials.json 
+      - ./credentials.json:/app/credentials.json
+      - ./data/users.db:/app/data/users.db
       - ./py_log.log:/app/py_log.log
       - ./docs:/app/docs
     restart: unless-stopped

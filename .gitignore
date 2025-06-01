@@ -178,3 +178,6 @@ credentials.json
 
 # System files
 .DS_Store
+
+# Database
+*.db

@@ -2,11 +2,14 @@ import asyncio
 import logging
 from aiogram import Bot, Dispatcher
 from pathlib import Path
-from dotenv import dotenv_values
 import os
+from dotenv import load_dotenv
 import links_generator.handler_commands as handler_commands
 from links_generator.googletables.worktables import GoogleSheetsManager
 from links_generator.vk_api.vk_api import VKLinkManager
+from links_generator.databases.databases import DatabaseManager
+
+load_dotenv(override=True)
 
 # Инициализация логгера в глобальной области
 logger = logging.getLogger(__name__)
@@ -17,6 +20,8 @@ else:
     google_worker = GoogleSheetsManager(os.getenv("GOOGLE_TABLE_ID"))
 
 vk_api_worker = VKLinkManager(os.getenv("VK_TOKEN"))
+db_worker = DatabaseManager("data/users.db")
+admin_id = os.getenv("TG_ADMIN_ID")
 
 
 async def async_main():
@@ -39,7 +44,8 @@ async def async_main():
     logger.info("Запуск бота")
     bot = Bot(token=config["BOT_TOKEN"])
     dp = Dispatcher()
-    handler_commands.setup(dp, google_worker, vk_api_worker)
+    handler_commands.setup(
+        dp, google_worker, vk_api_worker, db_worker, admin_id)
 
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)
